@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ServerRepository extends JpaRepository<Server, Long> {
-    List<Server> findByOwner(User owner);
+    List<Server> findAllByOwnerId(Long ownerId);
     List<Server> findByStatus(ServerStatus status);
 }

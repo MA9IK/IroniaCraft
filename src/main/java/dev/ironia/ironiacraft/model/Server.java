@@ -2,11 +2,13 @@ package dev.ironia.ironiacraft.model;
 
 import dev.ironia.ironiacraft.types.ServerStatus;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "servers")
+@Data
 public class Server {
 
     @Id

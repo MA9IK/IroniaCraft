@@ -60,4 +60,19 @@ public class UserRepositoryTest {
 
         assertThat(exists).isFalse();
     }
+
+    @Test
+    void findByUsername_shouldReturnUser_whenExists() {
+        Optional<User> result = userRepository.findByUsername("Ivan");
+
+        assertThat(result).isPresent();
+        assertThat(result.get().getTelegramChatId()).isEqualTo(12312312L);
+    }
+
+    @Test
+    void findByUsername_shouldReturnEmpty_whenNotExists() {
+        Optional<User> result = userRepository.findByUsername("Notch");
+
+        assertThat(result).isEmpty();
+    }
 }

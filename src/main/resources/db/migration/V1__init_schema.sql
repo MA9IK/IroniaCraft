@@ -1,7 +1,7 @@
 CREATE TABLE users (
     id BIGSERIAL PRIMARY KEY,
-    telegram_chat_id BIGINT UNIQUE NOT NULL,
-    username VARCHAR(255),
+    telegram_chat_id BIGINT UNIQUE,
+    username VARCHAR(255) UNIQUE NOT NULL,
     role VARCHAR(255) NOT NULL DEFAULT 'ROLE_USER',
     created_at timestamptz NOT NULL DEFAULT now()
 );
@@ -20,5 +20,6 @@ CREATE TABLE servers (
 );
 
 CREATE INDEX idx_users_telegram_chat_id ON users(telegram_chat_id);
+CREATE INDEX idx_users_username ON users(username);
 CREATE INDEX idx_servers_owner_id ON servers(owner_id);
 CREATE INDEX idx_servers_status ON servers(status);

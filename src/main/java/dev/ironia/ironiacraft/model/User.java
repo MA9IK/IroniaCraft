@@ -2,10 +2,12 @@ package dev.ironia.ironiacraft.model;
 
 import dev.ironia.ironiacraft.types.Role;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Data
 @Table(name = "users")
 public class User {
 
@@ -13,7 +15,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "telegram_chat_id", unique = true, nullable = false)
+    @Column(name = "telegram_chat_id", unique = true)
     private Long telegramChatId;
 
     private String username;
@@ -27,33 +29,5 @@ public class User {
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Long getTelegramChatId() {
-        return telegramChatId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public void setTelegramChatId(Long telegramChatId) {
-        this.telegramChatId = telegramChatId;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 }

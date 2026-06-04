@@ -4,7 +4,11 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
 public class ServerRequest {
 
     @NotBlank(message = "Server name cannot be empty")
@@ -25,28 +29,4 @@ public class ServerRequest {
     @Min(value = 512, message = "Minimum RAM is 512MB")
     @Max(value = 32768, message = "Maximum RAM is 32GB")
     private int ramMb = 4096;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getModpackPath() {
-        return modpackPath;
-    }
-
-    public String getMinecraftVersion() {
-        return minecraftVersion;
-    }
-
-    public int getJavaVersion() {
-        return javaVersion;
-    }
-
-    public int getPort() {
-        return port;
-    }
-
-    public int getRamMb() {
-        return ramMb;
-    }
 }
