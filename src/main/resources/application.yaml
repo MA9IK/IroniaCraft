@@ -25,7 +25,7 @@ spring:
 
 ironiacraft:
   modpacks-dir: ./modpacks
-  javaL:
+  java:
     java8-path: /usr/lib/jvm/java-8-temurin-jdk/bin/java
     java17-path: /usr/lib/jvm/java-17-temurin-jdk/bin/java
     java21-path: /usr/lib/jvm/java-21-temurin-jdk/bin/java
